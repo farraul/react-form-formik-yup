@@ -62,7 +62,7 @@ const Contact = () => {
                     />
                     {touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
 
-                    <label htmlFor="lastName">Nombre</label>
+                    <label htmlFor="lastName">Apellido</label>
                     <input
                         type="text"
                         name="lastName"
