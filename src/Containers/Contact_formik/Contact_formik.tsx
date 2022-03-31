@@ -48,7 +48,7 @@ const Contact = () => {
         <div className="contact-container">
             <div className="contact-container-form">
 
-                <h2>Contacto</h2>
+                <h2>Contacto Formik</h2>
                 <form onSubmit={handleSubmit} className="contact-container-form-fields" noValidate>
 
                     <label htmlFor="firstName">Nombre</label>

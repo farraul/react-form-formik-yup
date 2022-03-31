@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Containers/Home/Home';
-import Contact from './Containers/Contact/Contact';
+import Contact_formik from './Containers/Contact_formik/Contact_formik';
+import Contact_yup from './Containers/Contact_yup/Contact_yup';
+
 
 import Header from './Components/Header/Header';
 import './App.scss';
@@ -14,7 +16,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contacto" element={<Contact/>} />
+          <Route path="/contacto-formik" element={<Contact_formik/>} />
+          <Route path="/contacto-yup" element={<Contact_yup/>} />
 
         </Routes>
       </BrowserRouter>
