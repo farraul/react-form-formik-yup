@@ -1,79 +1,66 @@
-import { useFormik} from "formik";
+import { useFormik, Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 
 
-const Contact = () => {
-
-    const {handleSubmit,errors, touched, getFieldProps} = useFormik({
-        initialValues: {
-            firstName: '',
-            lastName: '',
-            email: '',
-        },
-        onSubmit: values => {
-            console.log(values)
-        },
-
-        validationSchema: Yup.object({
-            firstName: Yup.string()
-                          .max(15, 'Debe tener 15 letras o menos')
-                          .required('Requerido'),
-            lastName: Yup.string()
-            .max(15, 'Debe tener 15 letras o menos')
-            .required('Requerido'),
-
-            email: Yup.string()
-            .email('No tiene un formato válido')
-            .required('Requerido')   
-        })
-
-    });
-
+const ContactComponents = () => {
 
     return (
         <div className="contact-container">
             <div className="contact-container-form">
 
                 <h2>Contacto Components</h2>
-                <form onSubmit={handleSubmit} className="contact-container-form-fields" noValidate>
 
-                    <label htmlFor="firstName">Nombre</label>
-                    <input
-                        type="text"
-                      {...getFieldProps('firstName')}
-                    />
-                    {touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
+                <Formik 
+                    initialValues={{
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                    }}
+                    
+                    onSubmit={(values) => {
+                        console.log(values)
+                    }}
 
-                    <label htmlFor="lastName">Apellido</label>
-                    <input
-                        type="text"
-                        {...getFieldProps('lasttName')}
-                    />
-                    {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
+                    validationSchema={Yup.object({
+                        firstName: Yup.string()
+                            .max(15, 'Debe tener 15 letras o menos')
+                            .required('Requerido'),
+                        lastName: Yup.string()
+                            .max(15, 'Debe tener 15 letras o menos')
+                            .required('Requerido'),
 
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        {...getFieldProps('email')}
-                    />
-                    {touched.email && errors.email && <span>{errors.email}</span>}
-
-                    <button type="submit">Enviar</button>
-
-
-                </form>
+                        email: Yup.string()
+                            .email('No tiene un formato válido')
+                            .required('Requerido')
+                    })
+                    }>
 
 
 
+                    {(formik) => (
+                        <Form  className="contact-container-form-fields">
+                            <label htmlFor="firstName">Nombre</label>
+                            <Field name="firstName" type="text" />
+                            <ErrorMessage name="firstName" component="span" />
 
+                            <label htmlFor="lastName">Apellido</label>
+                            <Field name="lastName" type="text" />
+                            <ErrorMessage name="lastName" component="span" />
 
+                            <label htmlFor="email">Email</label>
+                            <Field name="email" type="text" />
+                            <ErrorMessage name="email" component="span" />
 
+                            <button type="submit">Enviar</button>
+                        </Form>
+                    )
+                    }
 
-
+                </Formik>
 
             </div>
         </div>
     )
 };
 
-export default Contact;
+export default ContactComponents;

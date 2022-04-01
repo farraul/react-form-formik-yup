@@ -47,7 +47,7 @@ const Contact = () => {
                     <label htmlFor="lastName">Apellido</label>
                     <input
                         type="text"
-                        {...getFieldProps('lasttName')}
+                        {...getFieldProps('lastName')}
                     />
                     {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
 
