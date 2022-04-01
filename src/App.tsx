@@ -3,6 +3,7 @@ import Home from './Containers/Home/Home';
 import ContactFormik from './Containers/ContactFormik/ContactFormik';
 import ContactYup from './Containers/ContactYup/ContactYup';
 import ContactComponents from './Containers/ContactComponents/ContactComponents';
+import ContactAbstract from './Containers/ContactAbstract/ContactAbstract';
 
 
 import Header from './Components/Header/Header';
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contacto-formik" element={<ContactFormik/>} />
           <Route path="/contacto-yup" element={<ContactYup/>} />
           <Route path="/contacto-components" element={<ContactComponents/>} />
+          <Route path="/contacto-abstract" element={<ContactAbstract/>} />
 
         </Routes>
       </BrowserRouter>
