@@ -15,6 +15,8 @@ const ContactComponents = () => {
                         firstName: '',
                         lastName: '',
                         email: '',
+                        terms: false,
+                        jobType: '',
                     }}
                     
                     onSubmit={(values) => {
@@ -31,8 +33,14 @@ const ContactComponents = () => {
 
                         email: Yup.string()
                             .email('No tiene un formato válido')
-                            .required('Requerido')
+                            .required('Requerido'),
+                        terms: Yup.boolean()
+                                .oneOf([true], 'Debe de aceptar las condiciones'),
+                        jobType: Yup.string()  
+                                    .notOneOf([ '3' ], 'Esta opción no es permitida')
+                                    .required('Requerido') 
                     })
+
                     }>
 
 
@@ -40,7 +48,7 @@ const ContactComponents = () => {
                     {(formik) => (
                         <Form  className="contact-container-form-fields">
                             <label htmlFor="firstName">Nombre</label>
-                            <Field name="firstName" type="text" />
+                            <Field name="firstName" type="text"/>
                             <ErrorMessage name="firstName" component="span" />
 
                             <label htmlFor="lastName">Apellido</label>
@@ -50,6 +58,20 @@ const ContactComponents = () => {
                             <label htmlFor="email">Email</label>
                             <Field name="email" type="text" />
                             <ErrorMessage name="email" component="span" />
+
+                            <label htmlFor="jobType">Seleccione</label>
+
+                            <Field name="jobType" as="select">
+                                <option value="">Selecciona una opción</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </Field>
+
+                            <ErrorMessage name="jobType" component="span" />
+
+                            <label>Términos
+                            <Field name="terms" type="checkbox" /></label>
+                            <ErrorMessage name="terms" component="span" />
 
                             <button type="submit">Enviar</button>
                         </Form>

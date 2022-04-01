@@ -16,7 +16,8 @@ const Header = () => {
                 <div className="header-menu-links" onClick={() => go_to_the_link("/")}>Inicio</div>
                 <div className="header-menu-links" onClick={() => go_to_the_link("/contacto-formik")}>Contacto (formik)</div>
                 <div className="header-menu-links" onClick={() => go_to_the_link("/contacto-yup")}>Contact (yup)</div>
-                <div className="header-menu-links" onClick={() => go_to_the_link("/contacto-components")}>Contact (Components)</div>
+                <div className="header-menu-links" onClick={() => go_to_the_link("/contacto-components")}>Contact (F. Components)</div>
+                <div className="header-menu-links" onClick={() => go_to_the_link("/contacto-abstract")}>Contact (F. Abstract)</div>
 
             </div>
         </div>
